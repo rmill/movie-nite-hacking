@@ -731,8 +731,10 @@ var ezsubscribe_widget = [];
                                                                 if (params.length === 0) {
                                                                     term.writeln([
                                                                         '',
-                                                                        ' Missing the employee name',
+                                                                        ' Missing the employee name. Either add one or use "all"',
+                                                                        '',
                                                                         ' USAGE: search_employee Bill S Preston',
+                                                                        ' USAGE: search_employee all'
                                                                     ].join('\n\r'));
                                                                 } else {
                                                                     const employees = {
@@ -744,13 +746,28 @@ var ezsubscribe_widget = [];
                                                                         'emiliolopez': {'name': 'Emilio Lopez', 'address': '1428 Elm Street', 'phone': '1 (424) 092-7323', 'kink': 'Weed and adrenalin'},
                                                                         'alexmyllykoski': {'name': 'Alex Myllykoski', 'address': '<REDACTED>', 'phone': '1 (543) 123-5422', 'kink': 'Getting "stoked"'},
                                                                         'leannemunro': {'name': 'Leanne Munro', 'address': 'She\'ll never tell', 'phone': '1 (543) 123-5422', 'kink': 'Getting "stoked"'},
-                                                                        'igorgvozdenovic': {'name': 'Igor Gvozdenovic', 'address': 'Serbanialand (fake)', 'phone': '1 (834) 234-7656', 'kink': '$%#^ in the $@&%'},
+                                                                        'igorgvozdenovic': {'name': 'Igor Gvozdenovic', 'address': 'Serbanialand (fake)', 'phone': 'Bird call', 'kink': '$%#^ in the $@&%'},
+                                                                        'jeffgruber': {'name': 'Jeff Gruber', 'address': '4th Circle of Hell', 'phone': '1 (618) 427-1770', 'kink': 'Power struggles'},
                                                                     };
 
                                                                     const inputName = params.join('').toLowerCase();
                                                                     const employee = employees[inputName];
 
-                                                                    if (employee) {
+                                                                    if (inputName === 'all') {
+                                                                        const MAX_CHARACTERS = 73;
+                                                                        const lines = [
+                                                                            '',
+                                                                            ' ┌ \x1b[1mSearch Results\x1b[0m ───────────────────────────────────────────────────────────┐'
+                                                                        ];
+
+                                                                        for (const [index, employee] of Object.entries(employees)) {
+                                                                            const padding = ' '.repeat(MAX_CHARACTERS - employee.name.length);
+                                                                            lines.push(` │ ${employee.name} ${padding}│`);
+                                                                        }
+
+                                                                        lines.push(' └───────────────────────────────────────────────────────────────────────────┘');
+                                                                        term.writeln(lines.join('\n\r'));
+                                                                    } else if (employee) {
                                                                         const MAX_CHARACTERS = 64;
                                                                         const name = employee.name;
                                                                         const address = employee.address;
