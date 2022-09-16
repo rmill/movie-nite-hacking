@@ -86,7 +86,7 @@
             <label for="email">Email</label><input id="email" type="text">
             <label for="pwd">Password</label><input id="pwd" type="password">
             <button>Login</button>
-            <div class="error hidden">You tryin' to hack in? Those credentials seem wrong.</div>
+            <div class="error hidden"></div>
         </div>
     </div>
 </div>
@@ -97,14 +97,23 @@
     const loginButton = document.querySelector('button');
 
     loginButton.addEventListener('click', () => {
-        const email = document.querySelector('#email').value;
-        const password = document.querySelector('#pwd').value;
+        const email = document.querySelector('#email').value.trim();
+        const password = document.querySelector('#pwd').value.replace(' ', '').toLowerCase();
+        const errorEl = document.querySelector('.error');
 
-        if (email !== 'test' || password !== 'password') {
-            document.querySelector('.error').classList.remove('hidden');
-        } else {
-            window.location.href = 'file:///home/ryanmiller/Desktop/test.html';
+        if (!email || !password) {
+            errorEl.classList.remove('hidden');
+            errorEl.innerHTML = 'Please enter email and password.';
+            return;
         }
+
+        if (email !== 'evil_ceo@hell.com' || password !== 'johnmcclane') {
+            errorEl.classList.remove('hidden');
+            errorEl.innerHTML = "You tryin' to hack in? Those credentials seem wrong.";
+            return;
+        }
+
+        window.location.href = 'file:///home/jeffgruber/code/movie-nite-hacking/test.html';
     });
 
     document.querySelector('#email').addEventListener('focus', () => {
