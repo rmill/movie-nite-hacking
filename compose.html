@@ -1,0 +1,168 @@
+<html>
+<head>
+    <style>
+        html {
+            background-color: #6a627b;
+            font-family: system-ui;
+            overflow: hidden;
+        }
+        body {
+            margin: 0;
+        }
+        .content {
+            background-color: #3d3c41;
+            width: 96%;
+            border-radius: 20px;
+            height: 98%;
+            margin-top: 1%;
+            margin-left: 2%;
+        }
+        .content-header {
+            height: 100px;
+            line-height: 100px;
+            font-size: 32px;
+            color: white;
+            padding-left: 25px;
+        }
+        .email-content {
+            height: 77%;
+            width: 100%;
+            background: white;
+            padding: 25px;
+            font-family: inherit;
+            font-size: 16px;
+        }
+        .email {
+            display: contents;
+            color: cyan;
+            font-style: italic;
+        }
+        button {
+            width: 181px;
+            border-radius: 19px;
+            font-size: 26px;
+            height: 82px;
+            margin-top: 21px;
+        }
+        .send-btn {
+            float: right;
+            margin-right: 23px;
+        }
+        .file-btn {
+            margin-left: 23px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="content-header">New Message - To: <div class="email">keyboard_cowboy@theOnion.com</div></div>
+        <textarea class="email-content">Hello you literary scoundrel!
+
+            Here is all the dirt on that a**hole you sent me. Let's put him in a body bag!
+        </textarea>
+        <button class="send-btn">Send</button>
+        <button id="attach-button-1" class="file-btn">Attach File 1</button>
+        <input type="file" class="hidden" name="attached_file_1">
+        <button id="attach-button-2" class="file-btn">Attach File 2</button>
+        <input type="file" class="hidden" name="attached_file_2">
+    </div>
+</body>
+</html>
+
+<script>
+    const attach1Button1 = document.querySelector('#attach-button-1');
+    const attach1Input1 = document.querySelector('[name=attached_file_1]');
+    attach1Button1.addEventListener('click', () => { attach1Input1.click() });
+
+    const attach1Button2 = document.querySelector('#attach-button-2');
+    const attach1Input2 = document.querySelector('[name=attached_file_2]');
+    attach1Button2.addEventListener('click', () => { attach1Input2.click() });
+
+    const extraInfoTextArea = document.querySelector('textarea');
+
+    const sendButton = document.querySelector('.send-btn');
+    sendButton.addEventListener('click', () => processSend());
+
+    function processSend () {
+        const errors = { 'file_1': null, 'file_2': null, 'extra_info': null };
+
+        switch (attach1Input1.value) {
+            case 'correct-path': break;
+            case '': errors.file_1 = 'You need to add file 1'; break;
+            default: errors.file_1 = 'Wrong file!';
+        }
+
+        switch (attach1Input2.value) {
+            case 'correct-path': break;
+            case '': errors.file_2 = 'You need to add file 2'; break;
+            default: errors.file_2 = 'Wrong file!';
+        }
+
+        const extraInfo = extraInfoTextArea.value.toLowerCase();
+        extraInfo.replace(' ', '');
+        extraInfo.toLowerCase();
+
+        if (extraInfo.indexOf('123 fake street') === -1) {
+            errors.extra_info = 'Missing the address in the email!'
+        }
+
+        console.log(errors);
+
+        const email = getEmailParams(errors);
+
+        send(email);
+    }
+
+    function getEmailParams(errors) {
+        const hasErrors = (errors.file_1 !== null || errors.file_2 !== null || errors.extra_info !== null);
+
+        if (hasErrors) {
+            let message = 'That looks kind of right but I think that I need a bit more information:\n';
+
+            if (errors.file_1 !== null) {
+                message += `- ${errors.file_1}\n`;
+            }
+
+            if (errors.file_2 !== null) {
+                message += `- ${errors.file_2}\n`;
+            }
+
+            if (errors.extra_info !== null) {
+                message += `- ${errors.extra_info}\n`;
+            }
+
+            return {
+                'from': 'Cool Guy',
+                'subject': 'Ummm.... close',
+                'message': message,
+                'date': 'Sept 17'
+            }
+        }
+
+        return {
+            'from': 'Cool Guy',
+            'subject': 'You did it!',
+            'message': 'Congrats! you foiled the evil plot <3',
+            'date': 'Sept 17'
+        }
+    }
+
+    function send(payload) {
+        const http = new XMLHttpRequest();
+        const params = JSON.stringify(payload);
+        const encodedParams = `body=${encodeURIComponent(params)}`;
+
+        http.open('POST', 'http://localhost:3000/email');
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        http.setRequestHeader('Accept', '*/*');
+
+        http.onreadystatechange = function() {
+            window.opener.postMessage('message', '*');
+        }
+
+        http.send(encodedParams);
+    }
+</script>

@@ -1,0 +1,73 @@
+<html>
+<head>
+    <style>
+        html {
+            background-color: #6a627b;
+            font-family: system-ui;
+            overflow: hidden;
+        }
+        body {
+            margin: 0;
+        }
+        .content {
+            background-color: #3d3c41;
+            width: 96%;
+            border-radius: 20px;
+            height: 98%;
+            margin-top: 1%;
+            margin-left: 2%;
+        }
+        .content-header {
+            height: 100px;
+            line-height: 100px;
+            font-size: 32px;
+            color: white;
+            padding-left: 25px;
+        }
+        .email-content {
+            height: 77%;
+            width: 100%;
+            background: white;
+            padding: 25px;
+            font-family: inherit;
+            font-size: 16px;
+        }
+        .email {
+            display: contents;
+            color: cyan;
+            font-style: italic;
+        }
+        .subject {
+            display: inline;
+            margin-left: 27px;
+        }
+        button {
+            width: 181px;
+            border-radius: 19px;
+            font-size: 26px;
+            height: 82px;
+            margin-top: 21px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="content-header">
+            <div class="email"></div>
+            <div class="subject">This is a password reset</div>
+        </div>
+        <textarea disabled class="email-content">Hello you literary scoundrel!
+
+            Here is all the dirt on that a**hole you sent me. Let's put him in a body bag!
+        </textarea>
+    </div>
+</body>
+</html>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+    document.querySelector('.email').innerHTML = `From: ${urlParams.get('from')}`;
+    document.querySelector('.subject').innerHTML = urlParams.get('subject');
+    document.querySelector('.email-content').innerHTML = urlParams.get('message');
+</script>

@@ -1,0 +1,212 @@
+<html>
+<head>
+    <style>
+        html {
+            background-color: #6a627b;
+            font-family: system-ui;
+            overflow: hidden;
+        }
+        body {
+            margin-left: 0;
+        }
+        .content {
+            background-color: #3d3c41;
+            width: 1520px;
+            border-radius: 20px;
+            height: 90%;
+            float: right;
+        }
+        .content-header {
+            height: 48px;
+        }
+        .content-header-pages {
+            float: right;
+            line-height: 48px;
+            margin-right: 48px;
+            color: #FFFFFFBE;
+            font-size: 12px;
+        }
+        .header {
+            margin-left: 35px;
+            height: 58px;
+        }
+        .searchbar {
+            width: 568px;
+            height: 46px;
+            display: inline-block;
+            background-color: #8b8599;
+            border-radius: 5px;
+        }
+        .sidebar {
+            width: 256px;
+            float: left;
+            height: 100%;
+        }
+        .compose {
+            background-color: #ffffff;
+            width: 142px;
+            height: 56px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-left: 33px;
+            cursor: pointer;
+        }
+        .mail-box {
+            margin: auto;
+            height: 32px;
+            line-height: 32px;
+            color: white;
+            padding-left: 33px;
+        }
+        .mail-box.selected {
+            background-color: #9791a2;
+            border-radius: 0 20px 20px 0;
+            font-weight: 900;
+            margin-top: 12px;
+        }
+        .email-rows {
+            position: relative;
+            height: 722px;
+            overflow-y: auto;
+        }
+        .email-row {
+            background-color: #1e1e20;
+            color: lightgrey;
+            font-size: 14px;
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        .email-row:hover {
+            background-color: #353538;
+        }
+        .email-row input {
+            margin-left: 18px;
+        }
+        .email-row .email-row-from {
+            width: 122px;
+            display: inline-block;
+            margin: 0 43px 0 43px;
+        }
+        .email-row .email-row-preview {
+            width: 832px;
+            margin-right: 58px;
+            display: inline-flex;
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+        .email-row .email-row-date {
+            width: 50px;
+            display: inline-block;
+         }
+        .email-row .email-row-subject {
+            display: inline-flex;
+            width: 271px;
+            white-space: nowrap;
+            overflow-x: hidden;
+            margin-right: 33px;
+        }
+        .content-space-used {
+            font-size: 15px;
+            color: #FFFFFE;
+            position: absolute;
+            left: 353px;
+            bottom: 72px;
+        }
+        .content-terms {
+            font-size: 15px;
+            color: #FFFFFE;
+            position: absolute;
+            left: 956px;
+            bottom: 72px;
+        }
+        .content-last-activity {
+            font-size: 15px;
+            color: #FFFFFE;
+            position: absolute;
+            right: 51px;
+            bottom: 72px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="google.png">
+        <div class="searchbar"></div>
+        <div class="icons"></div>
+    </div>
+    <div class="sidebar">
+        <button class="compose">Compose</button>
+        <div class="selected mail-box"><img>Inbox</div>
+        <div class="mail-box"><img>Snoozed</div>
+        <div class="mail-box"><img>Sent</div>
+        <div class="mail-box"><img>Categories</div>
+        <div class="mail-box"><img>More</div>
+    </div>
+    <div class="content">
+        <div class="content-header">
+            <div class="content-header-icons"></div>
+            <div class="content-header-pages">1-9 of 9</div>
+            <div class="content-header-arrows"></div>
+        </div>
+        <div class="email-rows"></div>
+        <div class="content-space-used">3.16 GB of 15 GB used</div>
+        <div class="content-terms">Terms · Privacy · Program Policies</div>
+        <div class="content-last-activity">Last account activity: 17 minutes ago</div>
+    </div>
+</body>
+</html>
+
+<script>
+    function openComposeWindow () {
+        const win = window.open("./compose.html", "compose", "popup=yes,innerWidth=500,innerHeight=500");
+        window.addEventListener("message", () => { win.close() }, false);
+    }
+
+    function openEmailWindow(element) {
+        const from = element.querySelector('.email-row-from').innerHTML;
+        const subject = element.querySelector('.email-row-subject').innerHTML;
+        const message = element.querySelector('.email-row-preview').innerHTML;
+        const params = `from=${from}&subject=${subject}&message=${message}`;
+
+        window.open(`./email.html?${params}`, "email", "popup=yes,innerWidth=500,innerHeight=500");
+    }
+
+    const composeButton = document.querySelector('.compose');
+    composeButton.addEventListener('click', () => openComposeWindow());
+
+    getEmails();
+    setInterval(() => { getEmails() }, 5000);
+
+    function getEmails() {
+        const xmlHttp = new XMLHttpRequest();
+        xmlHttp.addEventListener("load", renderEmails);
+        xmlHttp.open('GET', 'http://localhost:3000/email');
+        xmlHttp.send();
+    }
+
+    function renderEmails () {
+        const emails = JSON.parse(this.responseText);
+        const emailRows = document.getElementsByClassName('email-rows')[0];
+        let rowsInnerHTML = '';
+
+        emails.forEach(email => {
+            rowsInnerHTML += '<div class="email-row">' +
+                '<input type="checkbox">' +
+                `<div class="email-row-from">${email.from}</div>` +
+                `<div class="email-row-subject">${email.subject}</div>` +
+                `<div class="email-row-preview">${email.message}</div>` +
+                `<div class="email-row-date">${email.date}</div>` +
+                '</div>';
+        });
+
+        emailRows.innerHTML = rowsInnerHTML;
+
+        const addElements = document.getElementsByClassName('email-row');
+
+        for(const element of addElements) {
+            element.addEventListener('click', () => { openEmailWindow(element) });
+        }
+    }
+</script>
