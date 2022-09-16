@@ -12,7 +12,7 @@ const emails = [
     {'from': 'Fake 3', 'subject': 'subject', 'message': 'message' , 'date': 'Sep 9' },
 ];
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

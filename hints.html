@@ -1,0 +1,66 @@
+<html>
+<head>
+    <style>
+        html , body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url('./gifs/matrix.gif');
+            display: flex;
+            font-size: 24px;
+        }
+        .hints {
+            padding: 23px;
+            height: 792px;
+            width: 884px;
+            border-radius: 33px;
+            background: white;
+            margin: auto;
+        }
+        .hint {
+            margin-bottom: 44px;
+        }
+        .hint-description {
+            margin-bottom: 10px;
+        }
+        .hint-container {
+            display: flex;
+        }
+        .hint-text {
+            width: 494px;
+            font-size: 16px;
+            font-style: italic;
+        }
+        .hidden {
+            background-color: grey;
+            color: grey;
+        }
+        .hint-container button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hints">
+        <div class="hint">
+            <div class="hint-description">Have you tried logging into EvilMail?</div>
+            <div class="hint-container"><div id="hint1" class="hint-text hidden">you can access EvilMail via the Desktop</div><button data-hint="#hint1">Show</button></div>
+        </div>
+        <div class="hint">
+            <div class="hint-description">Have you tried logging into EvilMail?</div>
+            <div class="hint-container"><div id="hint2" class="hint-text hidden">you can access EvilMail via the Desktop</div><button data-hint="#hint2">Show</button></div>
+        </div>
+    </div>
+</body>
+<script>
+    document.querySelectorAll('.hint-container button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const hintId = event.target.getAttribute('data-hint');
+            document.querySelector(hintId).classList.remove('hidden');
+            event.target.remove();
+        });
+    });
+</script>
+</html>
