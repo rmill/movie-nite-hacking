@@ -192,6 +192,10 @@
         let rowsInnerHTML = '';
 
         emails.forEach(email => {
+            if (email.subject === 'You Win!') {
+                location.href = 'file:///home/jeffgruber/code/movie-nite-hacking/congrats.html'
+            }
+
             rowsInnerHTML += '<div class="email-row">' +
                 '<input type="checkbox">' +
                 `<div class="email-row-from">${email.from}</div>` +
