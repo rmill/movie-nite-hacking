@@ -25,7 +25,11 @@
 			{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/www.westmountplacecalgary.org\/#website","url":"https:\/\/www.westmountplacecalgary.org\/","name":"Condo Living Calgary","inLanguage":"en-US","publisher":{"@id":"https:\/\/www.westmountplacecalgary.org\/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.westmountplacecalgary.org\/?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https:\/\/www.westmountplacecalgary.org\/#organization","name":"Condo Living Calgary","url":"https:\/\/www.westmountplacecalgary.org\/"},{"@type":"BreadcrumbList","@id":"https:\/\/www.westmountplacecalgary.org\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/www.westmountplacecalgary.org\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/www.westmountplacecalgary.org\/","name":"Home","url":"https:\/\/www.westmountplacecalgary.org\/"},"nextItem":"https:\/\/www.westmountplacecalgary.org\/#listItem"},{"@type":"ListItem","@id":"https:\/\/www.westmountplacecalgary.org\/#listItem","position":2,"item":{"@type":"WebPage","@id":"https:\/\/www.westmountplacecalgary.org\/","name":"Entrance Hall","url":"https:\/\/www.westmountplacecalgary.org\/"},"previousItem":"https:\/\/www.westmountplacecalgary.org\/#listItem"}]},{"@type":"WebPage","@id":"https:\/\/www.westmountplacecalgary.org\/#webpage","url":"https:\/\/www.westmountplacecalgary.org\/","name":"Westmount Place Calgary - Luxury Condo Living in downtown Calgary","inLanguage":"en-US","isPartOf":{"@id":"https:\/\/www.westmountplacecalgary.org\/#website"},"breadcrumb":{"@id":"https:\/\/www.westmountplacecalgary.org\/#breadcrumblist"},"datePublished":"2010-09-14T21:28:09-07:00","dateModified":"2018-05-11T20:14:15-07:00"}]}
 		</script>
 		<!-- All in One SEO -->
-
+<style>
+    .art-content-layout {
+        height: 817px;
+    }
+</style>
 <link rel="dns-prefetch" href="https://www.westmountplacecalgary.org/">
 <link rel="dns-prefetch" href="https://s.w.org/">
 <link rel="alternate" type="application/rss+xml" title="Condo Living Calgary » Feed" href="https://www.westmountplacecalgary.org/feed/">
@@ -113,14 +117,6 @@ var ezsubscribe_widget = [];
         <div class="art-sheet-cr"></div>
         <div class="art-sheet-cc"></div>
         <div class="art-sheet-body">
-            <div class="art-header">
-                <div class="art-header-jpeg"></div>
-                <div class="art-logo">
-                <h1 id="name-text" class="art-logo-name">
-                        <a>Condo Living Calgary</a></h1>
-                    <div id="slogan-text" class="art-logo-text"></div>
-                </div>
-            </div>
             <div class="art-content-layout">
                 <div class="art-content-layout-row">
                     <div class="art-layout-cell art-sidebar1">
@@ -135,11 +131,6 @@ var ezsubscribe_widget = [];
     <div class="art-block-cr"></div>
     <div class="art-block-cc"></div>
     <div class="art-block-body">
-<div class="art-blockheader">
-    <div class="l"></div>
-    <div class="r"></div>
-     <div class="t">Login Status</div>
-</div>
 <div class="art-blockcontent">
     <div class="art-blockcontent-tl"></div>
     <div class="art-blockcontent-tr"></div>
@@ -154,7 +145,6 @@ var ezsubscribe_widget = [];
 <!-- block-content -->
     <div id="wlmember_loginwidget">
         <form method="post" action="https://www.westmountplacecalgary.org/wp-login.php">
-            <p>You are not currently logged in.</p>
             <span class="wlmember_loginwidget_input_username_holder">
                 <label>Username:</label><br>
                 <input class="wlmember_loginwidget_input_username" type="text" name="log" size="15">
@@ -165,16 +155,9 @@ var ezsubscribe_widget = [];
                 <input class="wlmember_loginwidget_input_password" type="password" name="pwd" size="15">
                 <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div>
             </span><br>
-            <span class="wlmember_loginwidget_input_checkrememberme_holder">
-                <input class="wlmember_loginwidget_input_checkrememberme" type="checkbox" name="rememberme" value="forever">
-                <label>Remember Me</label>
-            </span><br>
             <span class="wlmember_loginwidget_input_submit_holder">
-                <input class="wlmember_loginwidget_input_submit" type="button" name="wp-submit" value="Login">
+                <input class="wlmember_loginwidget_input_submit" type="submit" name="wp-submit" value="Login" style="margin-top: 10px;">
             </span><br><br>
-            <span class="wlmember_loginwidget_link_register_holder">»
-                <a>Register</a>
-            </span><br>
             <span class="wlmember_loginwidget_link_lostpassword_holder">»
                 <a id="lost-password" href="https://www.westmountplacecalgary.org/wp-login.php?action=lostpassword">Lost your Password?</a>
                 <script>
@@ -185,7 +168,7 @@ var ezsubscribe_widget = [];
                         const payload = {
                             'from': 'Evil Corp.',
                             'subject': 'Forgot Password',
-                            'message': 'We at Evil Corp believe that security is of the utmost importance. You might think sending the password here so easily is bad. It is not.....you cant prove us wrong. Here is your password: <i>password</i>' ,
+                            'message': 'We at Evil Corp believe that security is of the utmost importance. You might think sending the password here so easily is bad. It is not.....you cant prove us wrong. Here is your password: A3dty65' ,
                             'date': 'Sept 17'
                         }
                         const http = new XMLHttpRequest();
@@ -216,7 +199,7 @@ var ezsubscribe_widget = [];
                             return;
                         }
 
-                        if (password.value.trim() !== 'password') {
+                        if (password.value.trim() !== 'A3dty65') {
                             alert('Wrong password jerk!');
                             return;
                         }
@@ -358,131 +341,6 @@ var ezsubscribe_widget = [];
 
 			<ul>
 					<li><a>August 2022</a></li>
-	<li><a>July 2022</a></li>
-	<li><a>June 2022</a></li>
-	<li><a>May 2022</a></li>
-	<li><a>April 2022</a></li>
-	<li><a>March 2022</a></li>
-	<li><a>February 2022</a></li>
-	<li><a>January 2022</a></li>
-	<li><a>November 2021</a></li>
-	<li><a>September 2021</a></li>
-	<li><a>August 2021</a></li>
-	<li><a>July 2021</a></li>
-	<li><a>June 2021</a></li>
-	<li><a>May 2021</a></li>
-	<li><a>April 2021</a></li>
-	<li><a>March 2021</a></li>
-	<li><a>February 2021</a></li>
-	<li><a>January 2021</a></li>
-	<li><a>December 2020</a></li>
-	<li><a>November 2020</a></li>
-	<li><a>October 2020</a></li>
-	<li><a>August 2020</a></li>
-	<li><a>July 2020</a></li>
-	<li><a>June 2020</a></li>
-	<li><a>May 2020</a></li>
-	<li><a>April 2020</a></li>
-	<li><a>March 2020</a></li>
-	<li><a>February 2020</a></li>
-	<li><a>January 2020</a></li>
-	<li><a>December 2019</a></li>
-	<li><a>November 2019</a></li>
-	<li><a>October 2019</a></li>
-	<li><a>September 2019</a></li>
-	<li><a>August 2019</a></li>
-	<li><a>July 2019</a></li>
-	<li><a>June 2019</a></li>
-	<li><a>May 2019</a></li>
-	<li><a>April 2019</a></li>
-	<li><a>March 2019</a></li>
-	<li><a>February 2019</a></li>
-	<li><a>January 2019</a></li>
-	<li><a>November 2018</a></li>
-	<li><a>October 2018</a></li>
-	<li><a>September 2018</a></li>
-	<li><a>August 2018</a></li>
-	<li><a>July 2018</a></li>
-	<li><a>June 2018</a></li>
-	<li><a>May 2018</a></li>
-	<li><a>April 2018</a></li>
-	<li><a>March 2018</a></li>
-	<li><a>February 2018</a></li>
-	<li><a>January 2018</a></li>
-	<li><a>November 2017</a></li>
-	<li><a>October 2017</a></li>
-	<li><a>August 2017</a></li>
-	<li><a>July 2017</a></li>
-	<li><a>June 2017</a></li>
-	<li><a>May 2017</a></li>
-	<li><a>April 2017</a></li>
-	<li><a>March 2017</a></li>
-	<li><a>February 2017</a></li>
-	<li><a>January 2017</a></li>
-	<li><a>November 2016</a></li>
-	<li><a>September 2016</a></li>
-	<li><a>August 2016</a></li>
-	<li><a>July 2016</a></li>
-	<li><a>June 2016</a></li>
-	<li><a>May 2016</a></li>
-	<li><a>April 2016</a></li>
-	<li><a>March 2016</a></li>
-	<li><a>February 2016</a></li>
-	<li><a>January 2016</a></li>
-	<li><a>December 2015</a></li>
-	<li><a>November 2015</a></li>
-	<li><a>October 2015</a></li>
-	<li><a>September 2015</a></li>
-	<li><a>August 2015</a></li>
-	<li><a>July 2015</a></li>
-	<li><a>June 2015</a></li>
-	<li><a>April 2015</a></li>
-	<li><a>March 2015</a></li>
-	<li><a>February 2015</a></li>
-	<li><a>January 2015</a></li>
-	<li><a>November 2014</a></li>
-	<li><a>October 2014</a></li>
-	<li><a>September 2014</a></li>
-	<li><a>August 2014</a></li>
-	<li><a>July 2014</a></li>
-	<li><a>June 2014</a></li>
-	<li><a>May 2014</a></li>
-	<li><a>April 2014</a></li>
-	<li><a>February 2014</a></li>
-	<li><a>January 2014</a></li>
-	<li><a>December 2013</a></li>
-	<li><a>November 2013</a></li>
-	<li><a>October 2013</a></li>
-	<li><a>September 2013</a></li>
-	<li><a>August 2013</a></li>
-	<li><a>July 2013</a></li>
-	<li><a>June 2013</a></li>
-	<li><a>May 2013</a></li>
-	<li><a>April 2013</a></li>
-	<li><a>February 2013</a></li>
-	<li><a>January 2013</a></li>
-	<li><a>December 2012</a></li>
-	<li><a>November 2012</a></li>
-	<li><a>October 2012</a></li>
-	<li><a>September 2012</a></li>
-	<li><a>August 2012</a></li>
-	<li><a>July 2012</a></li>
-	<li><a>June 2012</a></li>
-	<li><a>May 2012</a></li>
-	<li><a>April 2012</a></li>
-	<li><a>March 2012</a></li>
-	<li><a>January 2012</a></li>
-	<li><a>December 2011</a></li>
-	<li><a>November 2011</a></li>
-	<li><a>October 2011</a></li>
-	<li><a>September 2011</a></li>
-	<li><a>August 2011</a></li>
-	<li><a>June 2011</a></li>
-	<li><a>April 2011</a></li>
-	<li><a>March 2011</a></li>
-	<li><a>February 2011</a></li>
-	<li><a>January 2011</a></li>
-	<li><a>December 2010</a></li>
 			</ul>
 
 
@@ -503,20 +361,34 @@ var ezsubscribe_widget = [];
                                     <div class="art-post-inner art-article post-2 page type-page status-publish hentry" id="post-2">
                                                                                                                                                                                     <div class="art-postmetadataheader">
                                                                                         <h2 class="art-postheader">
-                                              <a rel="bookmark" title="Permanent Link to Entrance Hall">
-                                               Entrance Hall                                              </a></h2>  
+
+                                               EVIL OIL AND GAS CO.                                              </h2>
                                         </div>                                        <div class="art-postheadericons art-metadata-icons">
                                                 
-                                        </div>                                        <div class="art-postcontent">
-                                            <!-- article-content -->
-                                            <table style="width: 534px; height: 750px; background-repeat: no-repeat;" border="0" cellpadding="8"><tbody><tr><td valign="top"><h1 style="text-align: center;">***Click on&nbsp;the “Announcements”&nbsp;tab for the latest information.***</h1><p>&nbsp;</p><h1 style="text-align: center;">Westmount Place Calgary</h1><h3 style="text-align: center;">A 27 STOREY DELUXE CONDOMINIUM HIGHRISE LOCATED IN PRIME DOWNTOWN CALGARY</h3><p>&nbsp;</p><p><strong>Location, location, location………</strong></p><p><strong>Set one block from the Millennium Park at the LRT station, minutes away from Bow River and Prince’s Island Park. Westmount Place offers unobstructed MOUNTAIN VIEWS while in the heart of the best lifestyles in Calgary.</strong></p><p>Whether retired or an Executive professional, those who reside at this downtown luxury condominium are within walking distance of Calgary’s center of commerce, upscale shopping, theaters, movie houses, ethnic &amp; Canadian restaurants, the Saddle Dome and the Greyhound Bus Terminal. Westmount is only two blocks away from the most extensive connected urban pathway system in North America (660 km) for bicycling, running and walking.</p><p><strong>Condominium living provides</strong> a near perfect solution for the individuals who want home ownership with the convenience of location, amenities, and worry free maintenance. Great for the individual who likes to come and go!</p><p><strong>Westmount Place condominium complex is unique because:</strong></p><ul><li><strong>Security</strong> – Westmount Place was designed for and is managed with a high degree of security. Twenty-four (24) hour, seven-day-a-week (24/7) security personal provides entry screening of guests and supplemental surveillance in the parkade.</li><li><strong>Amenities &amp; Lifestyle include:</strong> Concierge services, air-conditioning, cable TV, gym, swimming pool &amp; spa, Men’s &amp; Ladies steam-rooms/saunas, Racquet Ball &amp; Squash Courts and heated underground parking.&nbsp; Fibre optic service available.</li></ul><ul><li><strong>Concierge </strong>service is offered as part of Westmount Place amenities:<ul><li>Accepts parcels from&nbsp;delivery services</li><li>Dry cleaning service</li><li>Newspaper delivery</li><li>Taxi or limousine service</li></ul></li></ul><p><strong>Access to information</strong> is simple at Westmount Place with the easy access to&nbsp; this website. Owners wishing to have pertinent information about board meetings, budgets, by-laws, various documents and renovation criteria can obtain it here.</p></td></tr></tbody></table><p>&nbsp;</p>                                            <!-- /article-content -->
-                                        </div>
+                                        </div>                                        <div class="art-postcontent"></div>
                                         <div class="cleared"></div>
                                             
                                     </div>
                         		<div class="cleared"></div>
                             </div>
-                        </div>    
+                        </div>
+
+                        <div class="art-post" style="margin-top: 100px;">
+                            <div class="art-post-body">
+                                <div class="art-post-inner art-article post-2 page type-page status-publish hentry" id="post-2">
+                                    <div class="art-postmetadataheader">
+                                        <h2 class="art-postheader">
+
+                                            Please login to access the site                                              </h2>
+                                    </div>                                        <div class="art-postheadericons art-metadata-icons">
+
+                                </div>                                        <div class="art-postcontent"></div>
+                                    <div class="cleared"></div>
+
+                                </div>
+                                <div class="cleared"></div>
+                            </div>
+                        </div>
                             
                     </div>
                     <div class="art-layout-cell art-sidebar2">
@@ -530,37 +402,6 @@ var ezsubscribe_widget = [];
     <div class="art-block-cl"></div>
     <div class="art-block-cr"></div>
     <div class="art-block-cc"></div>
-    <div class="art-block-body">
-<div class="art-blockcontent">
-    <div class="art-blockcontent-tl"></div>
-    <div class="art-blockcontent-tr"></div>
-    <div class="art-blockcontent-bl"></div>
-    <div class="art-blockcontent-br"></div>
-    <div class="art-blockcontent-tc"></div>
-    <div class="art-blockcontent-bc"></div>
-    <div class="art-blockcontent-cl"></div>
-    <div class="art-blockcontent-cr"></div>
-    <div class="art-blockcontent-cc"></div>
-    <div class="art-blockcontent-body">
-<!-- block-content -->
-                                             <form method="get" name="searchform" action="https://www.westmountplacecalgary.org/">
-                                                <div class="search">
-                                                    <input type="text" value="" name="s" style="width: 95%;">
-                                                    <span class="art-button-wrapper ">
-                                                        <span class="l"> </span>
-                                                        <span class="r"> </span>
-                                                        <input class="art-button" type="button" name="search" value="Search">
-                                                    </span>
-                                                </div>
-                                            </form>
-<!-- /block-content -->
-
-		<div class="cleared"></div>
-    </div>
-</div>
-
-		<div class="cleared"></div>
-    </div>
 </div>
 <div class="art-block widget widget_recent_entries" id="recent-posts-3">
     <div class="art-block-tl"></div>
@@ -718,42 +559,6 @@ var ezsubscribe_widget = [];
     <div class="art-block-cl"></div>
     <div class="art-block-cr"></div>
     <div class="art-block-cc"></div>
-    <div class="art-block-body">
-<div class="art-blockheader">
-    <div class="l"></div>
-    <div class="r"></div>
-     <div class="t">Condo Ownership FYI</div>
-</div>
-<div class="art-blockcontent">
-    <div class="art-blockcontent-tl"></div>
-    <div class="art-blockcontent-tr"></div>
-    <div class="art-blockcontent-bl"></div>
-    <div class="art-blockcontent-br"></div>
-    <div class="art-blockcontent-tc"></div>
-    <div class="art-blockcontent-bc"></div>
-    <div class="art-blockcontent-cl"></div>
-    <div class="art-blockcontent-cr"></div>
-    <div class="art-blockcontent-cc"></div>
-    <div class="art-blockcontent-body">
-<!-- block-content -->
-
-
-	<ul class="xoxo blogroll">
-<li><a  title="Condominium Property Act &amp; Regulation">Alberta Condo Regulations</a></li>
-<li><a  title="Frequently Asked Questions for Condominium Corporations">Condo FAQs</a></li>
-<li><a  rel="noopener" title="Government document outlining the Condominium Property Act" target="_blank">Condominium Property Act</a></li>
-<li><a  title="Understand the Alberta condominium regulations">Condominium Property Regulations</a></li>
-
-	</ul>
-
-<!-- /block-content -->
-
-		<div class="cleared"></div>
-    </div>
-</div>
-
-		<div class="cleared"></div>
-    </div>
 </div>
     
                     </div>
