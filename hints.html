@@ -18,6 +18,7 @@
             border-radius: 33px;
             background: white;
             margin: auto;
+            overflow-y: scroll;
         }
         .hint {
             margin-bottom: 44px;
@@ -27,6 +28,7 @@
         }
         .hint-container {
             display: flex;
+            margin-bottom: 10px;
         }
         .hint-text {
             width: 494px;
@@ -40,17 +42,64 @@
         .hint-container button {
             margin-left: 10px;
         }
+        .explanation {
+            font-size: 16px;
+            margin-bottom: 42px;
+        }
     </style>
 </head>
 <body>
     <div class="hints">
+        <div class="explanation">This file contains useful hints for if you get stuck. The hints get increasingly more spoilery with the last telling you exactly what to do.</div>
         <div class="hint">
             <div class="hint-description">Have you tried logging into EvilMail?</div>
-            <div class="hint-container"><div id="hint1" class="hint-text hidden">you can access EvilMail via the Desktop</div><button data-hint="#hint1">Show</button></div>
+            <div class="hint-container"><div id="hint1" class="hint-text hidden">you can access EvilMail via the Desktop. Click on it.</div><button data-hint="#hint1">Show</button></div>
+            <div class="hint-container"><div id="hint2" class="hint-text hidden">Where did you see the email? Check all written materials</div><button data-hint="#hint2">Show</button></div>
+            <div class="hint-container"><div id="hint3" class="hint-text hidden">What is the password? Maybe the Desktop has answers</div><button data-hint="#hint3">Show</button></div>
+            <div class="hint-container"><div id="hint4" class="hint-text hidden">The username is: evil_ceo@hell.com and the password is: elanor</div><button data-hint="#hint4">Show</button></div>
         </div>
         <div class="hint">
-            <div class="hint-description">Have you tried logging into EvilMail?</div>
-            <div class="hint-container"><div id="hint2" class="hint-text hidden">you can access EvilMail via the Desktop</div><button data-hint="#hint2">Show</button></div>
+            <div class="hint-description">Have you tried logging into EvilSite?</div>
+            <div class="hint-container"><div id="hint5" class="hint-text hidden">you can access EvilSite via the Desktop. Click on it.</div><button data-hint="#hint5">Show</button></div>
+            <div class="hint-container"><div id="hint6" class="hint-text hidden">Where did you see the email? Check all written materials</div><button data-hint="#hint6">Show</button></div>
+            <div class="hint-container"><div id="hint7" class="hint-text hidden">We cannot find the password. Maybe there is a tool to send it somewhere?</div><button data-hint="#hint7">Show</button></div>
+            <div class="hint-container"><div id="hint8" class="hint-text hidden">Click "Forgot password". This will send Jeff and email</div><button data-hint="#hint8">Show</button></div>
+            <div class="hint-container"><div id="hint9" class="hint-text hidden">The username is: evil_ceo@hell.com and the password is: A3dty65</div><button data-hint="#hint9">Show</button></div>
+        </div>
+        <div class="hint">
+            <div class="hint-description">What do I do once I log into EvilSite?</div>
+            <div class="hint-container"><div id="hint10" class="hint-text hidden">Have you checked the EvilMail for a vulnerability?</div><button data-hint="#hint10">Show</button></div>
+            <div class="hint-container"><div id="hint11" class="hint-text hidden">An email from Security has instructions on how to break the search box</div><button data-hint="#hint11">Show</button></div>
+            <div class="hint-container"><div id="hint12" class="hint-text hidden">Type GRANT ACCESS ALL in the search box</div><button data-hint="#hint12">Show</button></div>
+        </div>
+        <div class="hint">
+            <div class="hint-description">How do I get the address?</div>
+            <div class="hint-container"><div id="hint13" class="hint-text hidden">One function of EvilSite allows you to search employees</div><button data-hint="#hint13">Show</button></div>
+            <div class="hint-container"><div id="hint14" class="hint-text hidden">Have you completed the previous hint?</div><button data-hint="#hint14">Show</button></div>
+            <div class="hint-container"><div id="hint15" class="hint-text hidden">searching for all employees will give you a list</div><button data-hint="#hint15">Show</button></div>
+            <div class="hint-container"><div id="hint16" class="hint-text hidden">search_employee jeff gruber</div><button data-hint="#hint16">Show</button></div>
+            <div class="hint-container"><div id="hint21" class="hint-text hidden">The address is 4th Circle of Hell</div><button data-hint="#hint21">Show</button></div>
+        </div>
+        <div class="hint">
+            <div class="hint-description">How do I get the photo?</div>
+            <div class="hint-container"><div id="hint17" class="hint-text hidden">Have you gotten access to Jeff's voicemail?</div><button data-hint="#hint17">Show</button></div>
+            <div class="hint-container"><div id="hint18" class="hint-text hidden">You can find the number by searching the employee directory</div><button data-hint="#hint18">Show</button></div>
+            <div class="hint-container"><div id="hint19" class="hint-text hidden">Call 1 (618) 427-1770</div><button data-hint="#hint19">Show</button></div>
+            <div class="hint-container"><div id="hint20" class="hint-text hidden">The location of the photo is EvilFiles -> 2019 -> august -> 29 -> oil.jpeg</div><button data-hint="#hint20">Show</button></div>
+        </div>
+        <div class="hint">
+            <div class="hint-description">How do I get the chat logs?</div>
+            <div class="hint-container"><div id="hint22" class="hint-text hidden">Have you gotten access to Jeff's Email?</div><button data-hint="#hint22">Show</button></div>
+            <div class="hint-container"><div id="hint23" class="hint-text hidden">There should be an email with some info</div><button data-hint="#hint23">Show</button></div>
+            <div class="hint-container"><div id="hint24" class="hint-text hidden">Select the email from Mr. Burns</div><button data-hint="#hint24">Show</button></div>
+            <div class="hint-container"><div id="hint25" class="hint-text hidden">The location of the chat logs are EvilFiles -> 2020 -> november -> 21 -> chat-logs.xml</div><button data-hint="#hint25">Show</button></div>
+        </div>
+        <div class="hint">
+            <div class="hint-description">What do I do once I have all the information for Jordee Stiles</div>
+            <div class="hint-container"><div id="hint26" class="hint-text hidden">You need to send him an email from EvilMail</div><button data-hint="#hint26">Show</button></div>
+            <div class="hint-container"><div id="hint27" class="hint-text hidden">Click Compose in EvilMail</div><button data-hint="#hint27">Show</button></div>
+            <div class="hint-container"><div id="hint28" class="hint-text hidden">Attach the files and enter the address in the textbox</div><button data-hint="#hint28">Show</button></div>
+            <div class="hint-container"><div id="hint29" class="hint-text hidden">If done correctly, the game should end!</div><button data-hint="#hint29">Show</button></div>
         </div>
     </div>
 </body>
