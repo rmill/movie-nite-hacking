@@ -98,7 +98,7 @@
 
     loginButton.addEventListener('click', () => {
         const email = document.querySelector('#email').value.trim();
-        const password = document.querySelector('#pwd').value.replace(' ', '').toLowerCase();
+        const password = document.querySelector('#pwd').value.replaceAll(' ', '').toLowerCase();
         const errorEl = document.querySelector('.error');
 
         if (!email || !password) {

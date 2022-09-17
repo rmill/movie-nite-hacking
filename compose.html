@@ -38,11 +38,12 @@
             font-style: italic;
         }
         button {
-            width: 181px;
+            width: 231px;
             border-radius: 19px;
             font-size: 26px;
             height: 82px;
             margin-top: 21px;
+            cursor: pointer;
         }
         .send-btn {
             float: right;
@@ -64,9 +65,9 @@
             Here is all the dirt on that a**hole you sent me. Let's put him in a body bag!
         </textarea>
         <button class="send-btn">Send</button>
-        <button id="attach-button-1" class="file-btn">Attach File 1</button>
+        <button id="attach-button-1" class="file-btn">Attach Chat Logs</button>
         <input type="file" class="hidden" name="attached_file_1">
-        <button id="attach-button-2" class="file-btn">Attach File 2</button>
+        <button id="attach-button-2" class="file-btn">Attach Image</button>
         <input type="file" class="hidden" name="attached_file_2">
     </div>
 </body>
@@ -90,23 +91,21 @@
         const errors = { 'file_1': null, 'file_2': null, 'extra_info': null };
 
         switch (attach1Input1.value) {
-            case 'correct-path': break;
-            case '': errors.file_1 = 'You need to add file 1'; break;
-            default: errors.file_1 = 'Wrong file!';
+            case 'C:\\fakepath\\chat-logs.xml': break;
+            case '': errors.file_1 = 'You forgot to add the chat logs!'; break;
+            default: errors.file_1 = 'This chat file doesn\'t seem to have what we need. Can you send another?';
         }
 
         switch (attach1Input2.value) {
-            case 'correct-path': break;
-            case '': errors.file_2 = 'You need to add file 2'; break;
-            default: errors.file_2 = 'Wrong file!';
+            case 'C:\\fakepath\\oil.jpeg': break;
+            case '': errors.file_2 = 'You forgot to add the image!'; break;
+            default: errors.file_2 = 'This image doesn\'t seem to have what we need. Can you send another?';
         }
 
-        const extraInfo = extraInfoTextArea.value.toLowerCase();
-        extraInfo.replace(' ', '');
-        extraInfo.toLowerCase();
+        const extraInfo = extraInfoTextArea.value.toLowerCase().replaceAll(' ', '');
 
-        if (extraInfo.indexOf('123 fake street') === -1) {
-            errors.extra_info = 'Missing the address in the email!'
+        if (extraInfo.indexOf('4thcircleofhell') === -1) {
+            errors.extra_info = 'The address you sent doesn\'t seem right. Can you try another?';
         }
 
         console.log(errors);
