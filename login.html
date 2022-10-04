@@ -70,6 +70,10 @@
             color: red;
             margin-top: 39px;
         }
+        .hint {
+            margin: auto;
+            margin-bottom: 39px;
+        }
         .hidden {
             display: none;
         }
@@ -85,6 +89,7 @@
         <div class="login">
             <label for="email">Email</label><input id="email" type="text">
             <label for="pwd">Password</label><input id="pwd" type="password">
+            <div class="hint">HINT: What is the name of my brother's gun?</div>
             <button>Login</button>
             <div class="error hidden"></div>
         </div>
@@ -98,7 +103,7 @@
 
     loginButton.addEventListener('click', () => {
         const email = document.querySelector('#email').value.trim();
-        const password = document.querySelector('#pwd').value.replaceAll(' ', '').toLowerCase();
+        const password = document.querySelector('#pwd').value.replace(/ /g, '').toLowerCase();
         const errorEl = document.querySelector('.error');
 
         if (!email || !password) {
@@ -107,9 +112,9 @@
             return;
         }
 
-        if (email !== 'evil_ceo@hell.com' || password !== 'johnmcclane') {
+        if (email !== 'evil_ceo@hell.com' || password !== 'elanor') {
             errorEl.classList.remove('hidden');
-            errorEl.innerHTML = "Incorrect credentials. <br>HINT: Who threw my brother off of Nakatomi Plaza?";
+            errorEl.innerHTML = "Incorrect Credentails";
             return;
         }
 

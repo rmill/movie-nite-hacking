@@ -20,12 +20,12 @@
         .content-header {
             height: 100px;
             line-height: 100px;
-            font-size: 32px;
+            font-size: 18px;
             color: white;
             padding-left: 25px;
         }
         .email-content {
-            height: 77%;
+            height: 61%;
             width: 100%;
             background: white;
             padding: 25px;
@@ -38,10 +38,10 @@
             font-style: italic;
         }
         button {
-            width: 231px;
-            border-radius: 19px;
-            font-size: 26px;
-            height: 82px;
+            width: 116px;
+            border-radius: 10px;
+            font-size: 13px;
+            height: 50px;
             margin-top: 21px;
             cursor: pointer;
         }
@@ -59,10 +59,14 @@
 </head>
 <body>
     <div class="content">
-        <div class="content-header">New Message - To: <div class="email">keyboard_cowboy@theOnion.com</div></div>
-        <textarea class="email-content">Hello you literary scoundrel!
+        <div class="content-header">New Message - To:  <div class="email">jordee_stiles@dailydish.com</div></div>
+        <textarea class="email-content">Hey Jordee, 
 
-            Here is all the dirt on that a**hole you sent me. Let's put him in a body bag!
+here is all the info you requested:
+
+Jeff Gruber's address is:  <-- put address here
+
+Let's nail him!
         </textarea>
         <button class="send-btn">Send</button>
         <button id="attach-button-1" class="file-btn">Attach Chat Logs</button>
@@ -102,7 +106,7 @@
             default: errors.file_2 = 'This image doesn\'t seem to have what we need. Can you send another?';
         }
 
-        const extraInfo = extraInfoTextArea.value.toLowerCase().replaceAll(' ', '');
+        const extraInfo = extraInfoTextArea.value.toLowerCase().replace(/ /g, '');
 
         if (extraInfo.indexOf('4thcircleofhell') === -1) {
             errors.extra_info = 'The address you sent doesn\'t seem right. Can you try another?';
@@ -119,22 +123,22 @@
         const hasErrors = (errors.file_1 !== null || errors.file_2 !== null || errors.extra_info !== null);
 
         if (hasErrors) {
-            let message = 'That looks kind of right but I think that I need a bit more information:\n';
+            let message = 'That looks kind of right but I think that I need a bit more information: ';
 
             if (errors.file_1 !== null) {
-                message += `- ${errors.file_1}\n`;
+                message += ` - ${errors.file_1}`;
             }
 
             if (errors.file_2 !== null) {
-                message += `- ${errors.file_2}\n`;
+                message += ` - ${errors.file_2}`;
             }
 
             if (errors.extra_info !== null) {
-                message += `- ${errors.extra_info}\n`;
+                message += ` - ${errors.extra_info}`;
             }
 
             return {
-                'from': 'Cool Guy',
+                'from': 'Jordee Stiles',
                 'subject': 'Ummm.... close',
                 'message': message,
                 'date': 'Sept 17'

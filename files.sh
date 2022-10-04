@@ -1,2 +1,2 @@
 rm -rf ~/Desktop/EvilFiles
-cp ~/codes/movie-nite-hacking/EvilFiles ~/Desktop/EvilFiles
+cp -r /home/jeffgruber/code/movie-nite-hacking/EvilFiles/ ~/Desktop/EvilFiles
